@@ -1,14 +1,15 @@
+import java.util.Vector;
 
 public class EuropeanPut extends OptionTemplate {
 
 	
 	public EuropeanPut(int strike, int initialPrice, 
 			float remainingLifeTime, float riskFreeRate, 
-			float volatility, int numberSimulations) {
+			float volatility, ScenarioGenerator scenarioGenerator) {
 		
 		super(strike, initialPrice, 
 			remainingLifeTime, riskFreeRate, 
-			volatility, numberSimulations);
+			volatility, scenarioGenerator);
 	}
 	
 	public double payoff(double simulatedPrice, int strike) {
@@ -27,5 +28,7 @@ public class EuropeanPut extends OptionTemplate {
 			float remainingLifeTime) {
 		return (sumPayOffs / numberSimulations) * Math.exp(-riskFreeRate * remainingLifeTime);
 	}
+	
+	
 	
 }

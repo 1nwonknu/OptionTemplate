@@ -21,8 +21,12 @@ public class OptionTest {
 		float volatility = 0.9f;
 		int numberSimulations = 1000;
 		
-		callOption = new EuropeanCall(strike, initialPrice, remainingLifeTime, riskFreeRate, volatility, numberSimulations);
-		putOption = new EuropeanPut(strike, initialPrice, remainingLifeTime, riskFreeRate, volatility, numberSimulations);
+		ScenarioGenerator scenarioGenerator = new ScenarioGenerator(numberSimulations);
+		
+		scenarioGenerator.computeRandomNumbers();
+		
+		callOption = new EuropeanCall(strike, initialPrice, remainingLifeTime, riskFreeRate, volatility, scenarioGenerator);
+		putOption = new EuropeanPut(strike, initialPrice, remainingLifeTime, riskFreeRate, volatility, scenarioGenerator);
 	
 	}
 	

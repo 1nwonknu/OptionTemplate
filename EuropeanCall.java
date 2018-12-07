@@ -1,14 +1,15 @@
+import java.util.Vector;
 
 public class EuropeanCall extends OptionTemplate {
 
 	
 	public EuropeanCall(int strike, int initialPrice, 
 			float remainingLifeTime, float riskFreeRate, 
-			float volatility, int numberSimulations) {
+			float volatility, ScenarioGenerator scenarioGenerator) {
 		
 		super(strike, initialPrice, 
 			remainingLifeTime, riskFreeRate, 
-			volatility, numberSimulations);
+			volatility, scenarioGenerator);
 	}
 	
 	public double payoff(double simulatedPrice, int strike) {
